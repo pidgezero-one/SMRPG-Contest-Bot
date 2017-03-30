@@ -99,13 +99,16 @@ alias minecartWinners {
         }
         elseif ( $abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp )) < %winningTime) {
           set %2ndwinner %winner
+          set %2ndwinners %winners
           set %2ndwinningtime %winningTime
           set %winningTime $abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp ))
           set %winner @ $+ %var
+          set %winners %winners $+ $chr(44) $+ %var
         }
         elseif ( $abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp )) > %winningTime && ($abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp )) < %2ndwinningTime || %2ndwinningTime == $null)) {
           set %2ndwinningTime $abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp ))
           set %2ndwinner @ $+ %var
+          set %2ndwinners %var
         }
         elseif ( $abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp )) > %winningTime && $abs($calc(%minecart. [ $+ [ %var ] ] - %timestamp )) == %2ndwinningTime) {
           set %2ndwinner %2ndwinner $+ $chr(44) $+ $chr(32) $+ @ $+ %var
@@ -230,7 +233,7 @@ alias sandstormWinners {
   while (%i <= %n) {
     %var = $gettok($var(sandstorm $+ *,%i),2-,46)
     if (%sandstorm. [ $+ [ %var ] ] == $$1) {
-      inc % [ $+ [ %var ] ] 2
+      inc %leaderboard. [ $+ [ %var ] ] 2
       if (%2point == $null) {
         set %2point @ $+ %var
       }

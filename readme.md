@@ -16,3 +16,5 @@ Whoever guesses correctly or the closest gets points (within reason). points don
 Put these files in your scripts folder of your mIRC installation. Read https://help.twitch.tv/customer/portal/articles/1302780-twitch-irc#MIRC if you don't know how to use mIRC with twitch, you will need to make your own secondary bot account to run this.
 
 Just replace "#pidgezero_one" in my code everywhere with your twitch name and all other instances of "pidgezero_one" with the name of whoever you want to give access to the bot commands to.
+
+Also includes a basic quote DB function and a script that generates a lenny face meme every 15-20 mins
