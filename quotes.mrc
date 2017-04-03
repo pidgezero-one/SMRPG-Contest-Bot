@@ -1,6 +1,10 @@
 on *:TEXT:!addquote*:#:{
   if ($nick isop $chan) {
     /write quotes.txt $$2-
+    msg $active Quote added.
+  }
+  else {
+    msg $active Only channel mods can add quotes.
   }
 }
 on *:TEXT:!quote:#:{
